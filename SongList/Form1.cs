@@ -57,11 +57,6 @@ namespace SongList
                 }
             }
         }
-
-        private void txt1_MouseEnter(object sender, EventArgs e)
-        {
-            txt1.SelectAll();
-        }
         private void txt1_MouseLeave(object sender, EventArgs e)
         {
             txt1.SelectionLength = 0;

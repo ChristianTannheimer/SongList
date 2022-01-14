@@ -49,7 +49,6 @@
             this.txt1.TabIndex = 0;
             this.txt1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt1_MouseClick);
             this.txt1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1_KeyDown);
-            this.txt1.MouseEnter += new System.EventHandler(this.txt1_MouseEnter);
             this.txt1.MouseLeave += new System.EventHandler(this.txt1_MouseLeave);
             // 
             // contextMenuStrip1
