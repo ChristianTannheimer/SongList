@@ -35,6 +35,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblExit = new System.Windows.Forms.Label();
             this.lblÖffnen = new System.Windows.Forms.Label();
+            this.lblMinimized = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.txt1.Location = new System.Drawing.Point(3, 4);
             this.txt1.Margin = new System.Windows.Forms.Padding(0);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(421, 38);
+            this.txt1.Size = new System.Drawing.Size(471, 38);
             this.txt1.TabIndex = 0;
             this.txt1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt1_MouseClick);
             this.txt1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1_KeyDown);
@@ -69,7 +70,7 @@
             // 
             this.lblExit.AutoSize = true;
             this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExit.Location = new System.Drawing.Point(417, 0);
+            this.lblExit.Location = new System.Drawing.Point(466, 0);
             this.lblExit.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblExit.Name = "lblExit";
             this.lblExit.Size = new System.Drawing.Size(9, 9);
@@ -81,7 +82,7 @@
             // 
             this.lblÖffnen.AutoSize = true;
             this.lblÖffnen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblÖffnen.Location = new System.Drawing.Point(408, 0);
+            this.lblÖffnen.Location = new System.Drawing.Point(458, 0);
             this.lblÖffnen.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblÖffnen.Name = "lblÖffnen";
             this.lblÖffnen.Size = new System.Drawing.Size(9, 9);
@@ -89,21 +90,35 @@
             this.lblÖffnen.Text = "[]";
             this.lblÖffnen.Click += new System.EventHandler(this.lblÖffnen_Click);
             // 
+            // lblMinimized
+            // 
+            this.lblMinimized.AutoSize = true;
+            this.lblMinimized.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMinimized.Location = new System.Drawing.Point(446, 0);
+            this.lblMinimized.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblMinimized.Name = "lblMinimized";
+            this.lblMinimized.Size = new System.Drawing.Size(12, 9);
+            this.lblMinimized.TabIndex = 3;
+            this.lblMinimized.Text = "m";
+            this.lblMinimized.Click += new System.EventHandler(this.lblMinimized_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(425, 42);
+            this.ClientSize = new System.Drawing.Size(476, 42);
+            this.Controls.Add(this.lblMinimized);
             this.Controls.Add(this.lblÖffnen);
             this.Controls.Add(this.lblExit);
             this.Controls.Add(this.txt1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SongList";
             this.TopMost = true;
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
@@ -120,6 +135,7 @@
         private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Label lblÖffnen;
+        private System.Windows.Forms.Label lblMinimized;
     }
 }
 

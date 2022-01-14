@@ -24,16 +24,17 @@ namespace SongList
             if (!File.Exists(pathString))
             {
                 StreamWriter sw = new StreamWriter(pathString);
-                sw.WriteLine("Gib hier deine Songs ein. Ein Song in jede Zeile und die Nummer vom Namen mit einem Leerzeichen getrenn, das war's!");
                 sw.WriteLine("Ein Song in jede Zeile,");
                 sw.WriteLine("die Nummer vom Namen mit einem Leerzeichen getrennt,");
                 sw.WriteLine("das war's!");
+                sw.WriteLine();
+                sw.WriteLine("Hier ein Beispiel:");
+                sw.WriteLine("25 Frau Meier hat gelbe Unterhosen an");
                 sw.Close();
+
+
             }
         }
-
-
-
         private void txt1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -82,6 +83,10 @@ namespace SongList
         private void lblÖffnen_Click(object sender, EventArgs e)
         {
             Process.Start("explorer", pathString);
+        }
+        private void lblMinimized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
     }
 }
