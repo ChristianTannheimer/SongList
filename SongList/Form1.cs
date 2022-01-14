@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -16,9 +17,19 @@ namespace SongList
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
+        public string pathString = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SongList.txt");
         public Form1()
         {
             InitializeComponent();
+            if (!File.Exists(pathString))
+            {
+                StreamWriter sw = new StreamWriter(pathString);
+                sw.WriteLine("Gib hier deine Songs ein. Ein Song in jede Zeile und die Nummer vom Namen mit einem Leerzeichen getrenn, das war's!");
+                sw.WriteLine("Ein Song in jede Zeile,");
+                sw.WriteLine("die Nummer vom Namen mit einem Leerzeichen getrennt,");
+                sw.WriteLine("das war's!");
+                sw.Close();
+            }
         }
 
 
@@ -28,18 +39,10 @@ namespace SongList
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if (txt1.SelectionLength == 0)
-                {
-                    txt1.SelectAll();
-                }
-                else
-                {
-                    txt1.SelectionLength = 0;
-                }
+                if (txt1.SelectionLength == 0) { txt1.SelectAll(); }
+                else { txt1.SelectionLength = 0; }
 
-                string pathString = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SongList.txt");
                 string[] songs = File.ReadLines(pathString).ToArray();
-
                 string nummer = txt1.Text;
 
                 foreach (string song in songs)
@@ -58,12 +61,10 @@ namespace SongList
         {
             txt1.SelectAll();
         }
-
         private void txt1_MouseLeave(object sender, EventArgs e)
         {
             txt1.SelectionLength = 0;
         }
-
         private void txt1_MouseClick(object sender, MouseEventArgs e)
         {
             txt1.SelectAll();
@@ -74,10 +75,13 @@ namespace SongList
             ReleaseCapture();
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-
         private void lblExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void lblÖffnen_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer", pathString);
         }
     }
 }
