@@ -18,6 +18,7 @@ namespace SongList
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
         public string pathString = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SongList.txt");
+        
         public Form1()
         {
             InitializeComponent();
@@ -31,8 +32,6 @@ namespace SongList
                 sw.WriteLine("Hier ein Beispiel:");
                 sw.WriteLine("25 Frau Meier hat gelbe Unterhosen an");
                 sw.Close();
-
-
             }
         }
         private void txt1_KeyDown(object sender, KeyEventArgs e)
@@ -56,7 +55,12 @@ namespace SongList
                     }
                 }
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                e.SuppressKeyPress = true;
+            }
         }
+
         private void txt1_MouseLeave(object sender, EventArgs e)
         {
             txt1.SelectionLength = 0;
@@ -66,22 +70,24 @@ namespace SongList
             txt1.SelectAll();
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer", pathString);
+        }
+
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
         }
-        private void lblExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void lblÖffnen_Click(object sender, EventArgs e)
-        {
-            Process.Start("explorer", pathString);
-        }
-        private void lblMinimized_Click(object sender, EventArgs e)
-        {
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
-        }
+
     }
 }

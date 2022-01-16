@@ -33,19 +33,20 @@
             this.txt1 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblExit = new System.Windows.Forms.Label();
-            this.lblÖffnen = new System.Windows.Forms.Label();
-            this.lblMinimized = new System.Windows.Forms.Label();
+            this.minimizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt1
             // 
+            this.txt1.ContextMenuStrip = this.contextMenuStrip1;
+            this.txt1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt1.Location = new System.Drawing.Point(3, 4);
-            this.txt1.Margin = new System.Windows.Forms.Padding(0);
+            this.txt1.Location = new System.Drawing.Point(10, 1);
+            this.txt1.Margin = new System.Windows.Forms.Padding(1);
             this.txt1.Name = "txt1";
-            this.txt1.Size = new System.Drawing.Size(471, 38);
+            this.txt1.Size = new System.Drawing.Size(470, 38);
             this.txt1.TabIndex = 0;
             this.txt1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txt1_MouseClick);
             this.txt1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt1_KeyDown);
@@ -55,61 +56,41 @@
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
+            this.exitToolStripMenuItem,
+            this.minimizeToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(94, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 70);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.exitToolStripMenuItem.Text = "Beenden";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // lblExit
+            // minimizeToolStripMenuItem
             // 
-            this.lblExit.AutoSize = true;
-            this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExit.Location = new System.Drawing.Point(466, 0);
-            this.lblExit.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblExit.Name = "lblExit";
-            this.lblExit.Size = new System.Drawing.Size(9, 9);
-            this.lblExit.TabIndex = 1;
-            this.lblExit.Text = "x";
-            this.lblExit.Click += new System.EventHandler(this.lblExit_Click);
+            this.minimizeToolStripMenuItem.Name = "minimizeToolStripMenuItem";
+            this.minimizeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.minimizeToolStripMenuItem.Text = "Minimieren";
+            this.minimizeToolStripMenuItem.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
-            // lblÖffnen
+            // editToolStripMenuItem
             // 
-            this.lblÖffnen.AutoSize = true;
-            this.lblÖffnen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblÖffnen.Location = new System.Drawing.Point(458, 0);
-            this.lblÖffnen.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblÖffnen.Name = "lblÖffnen";
-            this.lblÖffnen.Size = new System.Drawing.Size(9, 9);
-            this.lblÖffnen.TabIndex = 2;
-            this.lblÖffnen.Text = "[]";
-            this.lblÖffnen.Click += new System.EventHandler(this.lblÖffnen_Click);
-            // 
-            // lblMinimized
-            // 
-            this.lblMinimized.AutoSize = true;
-            this.lblMinimized.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinimized.Location = new System.Drawing.Point(446, 0);
-            this.lblMinimized.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblMinimized.Name = "lblMinimized";
-            this.lblMinimized.Size = new System.Drawing.Size(12, 9);
-            this.lblMinimized.TabIndex = 3;
-            this.lblMinimized.Text = "m";
-            this.lblMinimized.Click += new System.EventHandler(this.lblMinimized_Click);
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.editToolStripMenuItem.Text = "Bearbeiten";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(476, 42);
-            this.Controls.Add(this.lblMinimized);
-            this.Controls.Add(this.lblÖffnen);
-            this.Controls.Add(this.lblExit);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(481, 40);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.txt1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -131,10 +112,9 @@
 
         private System.Windows.Forms.TextBox txt1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label lblExit;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Label lblÖffnen;
-        private System.Windows.Forms.Label lblMinimized;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
     }
 }
 
