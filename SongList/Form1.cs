@@ -18,13 +18,15 @@ namespace SongList
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
         public string pathString = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SongList.txt");
-        
+
         public Form1()
         {
             InitializeComponent();
             if (!File.Exists(pathString))
             {
                 StreamWriter sw = new StreamWriter(pathString);
+                sw.WriteLine($"Pfad dieser Datei: {pathString}");
+                sw.WriteLine();
                 sw.WriteLine("Ein Song in jede Zeile,");
                 sw.WriteLine("die Nummer vom Namen mit einem Leerzeichen getrennt,");
                 sw.WriteLine("das war's!");
@@ -39,8 +41,6 @@ namespace SongList
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if (txt1.SelectionLength == 0) { txt1.SelectAll(); }
-                else { txt1.SelectionLength = 0; }
 
                 string[] songs = File.ReadLines(pathString).ToArray();
                 string nummer = txt1.Text;
@@ -54,10 +54,12 @@ namespace SongList
                         txt1.Text = ohneZahl;
                     }
                 }
+                txt1.SelectAll();
             }
             if (e.KeyCode == Keys.Escape)
             {
                 e.SuppressKeyPress = true;
+                txt1.SelectionLength = 0;
             }
         }
 
